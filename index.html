@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Internship Task Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 20%;
+            border-radius: 15px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            margin: auto;
+            text-align: center;
+        }
+
+        .display-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 10px;
+            background-color: #f0f0f0;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Stage One Task</h1>
+
+        <!-- Slack Name -->
+        <div class="details">
+            <p><b> Slack Name: </b></p>
+            <p data-testid="slackUserName" class="name">Moboluwarin Amoo</p>
+        </div>
+
+        <!-- Slack Display Picture -->
+        <img src="Snapchat-1800195736.jpg" alt="Moboluwarin Amoo" data-testid="slackDisplayImage" class="display-image">
+
+        <!-- Current Day of the Week -->
+        <div class="details">
+            <p><b>Day:</b></p>
+            <p data-testid="currentDayOfTheWeek" class="day"></p>
+        </div>
+
+        <!-- Current UTC Time -->
+        <div class="details">
+            <p><b>Time:</b></p>
+            <p data-testid="currentUTCTime" class="time"></p>
+        </div>
+
+        <!-- Track -->
+        <div class="details">
+            <p><b>Track:</b></p>
+            <p data-testid="myTrack">Frontend</p>
+        </div>
+
+        <!-- GitHub URL -->
+        <a href="https://github.com/yourusername/your-repo" data-testid="githubURL">GitHub Repository</a>
+    </div>
+    <script>
+        // JavaScript to update real-time data
+        function updateDateTime() {
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const currentDate = new Date();
+            const currentDay = daysOfWeek[currentDate.getUTCDay()];
+            const currentUTCTime = currentDate.getTime();
+
+            // Update the elements with real-time data
+            document.querySelector('.day').innerText = currentDay;
+            document.querySelector('.time').innerText = currentUTCTime;
+        }
+
+        updateDateTime();
+    </script>
+</body>
+
+</html>
